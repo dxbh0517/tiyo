@@ -205,7 +205,7 @@ export class MangaBoxClient {
 
   getSearch: GetSearchFunc = (text: string, page: number) => {
     const query = text.replace(
-      /!|@|%|\^|\*|\(|\)|\+|=|<|>|\?|\/|,|\.|:|;|'| |"|&|#|\[|]|~|-|$|_/,
+      /!|@|%|\^|\*|\(|\)|\+|=|<|>|\?|\/|,|\.|:|;|'| |"|&|#|\[|]|~|-|$|_/g,
       '_'
     );
     return this.webviewFn(`${this.baseUrl}/${this.searchPath}/${query}?page=${page}`).then(
